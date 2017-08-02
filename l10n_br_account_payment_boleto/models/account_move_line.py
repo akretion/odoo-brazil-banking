@@ -24,6 +24,7 @@ import logging
 from datetime import date
 
 from openerp import models, fields, api
+from openerp.exceptions import Warning as UserError
 
 from ..boleto.document import Boleto
 from ..boleto.document import BoletoException
@@ -61,7 +62,6 @@ class AccountMoveLine(models.Model):
                                 internal_sequence_id.id)
                     else:
                         nosso_numero = move_line.boleto_own_number
-
                     boleto = Boleto.getBoleto(move_line, nosso_numero)
                     if boleto:
                         move_line.date_payment_created = date.today()
@@ -71,8 +71,7 @@ class AccountMoveLine(models.Model):
 
                     boleto_list.append(boleto.boleto)
             except BoletoException as be:
-                _logger.error(be.message or be.value, exc_info=True)
-                continue
+                raise UserError(be.message or be.value)
             except Exception as e:
                 _logger.error(e.message or e.value, exc_info=True)
                 continue

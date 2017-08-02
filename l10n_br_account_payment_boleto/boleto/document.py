@@ -92,7 +92,7 @@ class Boleto:
         self.boleto.especie = \
             move_line.currency_id and move_line.currency_id.symbol or 'R$'
         self.boleto.quantidade = ''  # str("%.2f" % move_line.amount_currency)
-        self.boleto.numero_documento = move_line.name.encode('utf-8')
+        self.boleto.numero_documento = move_line.id #move_line.name.encode('utf-8')
 
     def _payment_mode(self, payment_mode_id):
         """
@@ -125,6 +125,12 @@ class Boleto:
         :param partner:
         :return:
         """
+        if not partner.street:
+             raise BoletoException(u'Configure a rua do sacado!')
+        if not partner.number:
+             raise BoletoException(u'Configure o numero do sacado!')
+        if not partner.state_id:
+             raise BoletoException(u'Configure a UF do sacado!')
         self.boleto.sacado_endereco = partner.street + ', ' + partner.number
         self.boleto.sacado_cidade = partner.city
         self.boleto.sacado_bairro = partner.district
