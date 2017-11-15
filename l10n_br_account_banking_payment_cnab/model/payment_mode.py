@@ -20,7 +20,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from openerp import models, fields, api
 from openerp.addons import decimal_precision as dp
 from ..constantes import TIPO_SERVICO, FORMA_LANCAMENTO, \
     COMPLEMENTO_TIPO_SERVICO, CODIGO_FINALIDADE_TED, AVISO_FAVORECIDO
@@ -50,7 +50,6 @@ class PaymentMode(models.Model):
         size=20,
         string=u'Código do Convênio no Banco',
         help=u'Campo G007 do CNAB',
-        default=u'0001222130126',
     )
     codigo_finalidade_doc = fields.Selection(
         selection=COMPLEMENTO_TIPO_SERVICO,

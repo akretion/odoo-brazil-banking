@@ -5,7 +5,7 @@
 
 from __future__ import division, print_function, unicode_literals
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 from ..constantes import TIPO_SERVICO, FORMA_LANCAMENTO, \
     INDICATIVO_FORMA_PAGAMENTO, TIPO_MOVIMENTO, CODIGO_INSTRUCAO_MOVIMENTO
@@ -40,7 +40,6 @@ class PaymentOrder(models.Model):
         size=20,
         string=u'Código do Convênio no Banco',
         help=u'Campo G007 do CNAB',
-        default=u'0001222130126',
     )
     indicativo_forma_pagamento = fields.Selection(
         selection=INDICATIVO_FORMA_PAGAMENTO,
@@ -73,3 +72,8 @@ class PaymentOrder(models.Model):
     # @api.multi
     # def write_added_state_to_move_line(self, mov_line):
     #     mov_line.state_cnab = 'added'
+
+    @api.onchange('mode')
+    def onchange_codigo_convenio(self):
+        if self.mode:
+            self.codigo_convenio = self.mode.codigo_convenio

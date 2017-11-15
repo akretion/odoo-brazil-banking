@@ -27,8 +27,7 @@
     'name': 'Brazilian Banking - Debit and Payments Export Infrastructure',
     'version': '8.0.0.0.0',
     'license': 'AGPL-3',
-    'author': "KMEE, "
-              "Odoo Community Association (OCA)",
+    'author': "KMEE, Odoo Community Association (OCA)",
     'website': 'https://github.com/odoo-brazil/odoo-brazil-banking',
     'category': 'Banking addons',
     'depends': [
@@ -43,7 +42,6 @@
         'wizard/payment_order_create_view.xml',
         # 'data/payment_mode_type.xml',
     ],
-    'demo': [
-    ],
+    'demo': [],
     'installable': True,
 }
