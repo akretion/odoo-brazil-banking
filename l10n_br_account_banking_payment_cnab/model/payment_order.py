@@ -61,7 +61,7 @@ class PaymentOrder(models.Model):
         selection=CODIGO_INSTRUCAO_MOVIMENTO_400,
         string='Código da Instrução para Movimento',
         help='Campo G061 do CNAB',
-        default='00',
+        default='01',
     )
 
     # @api.multi
