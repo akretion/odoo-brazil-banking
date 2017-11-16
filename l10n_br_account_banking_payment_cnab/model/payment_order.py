@@ -7,8 +7,11 @@ from __future__ import division, print_function, unicode_literals
 
 from openerp import models, fields, api
 
-from ..constantes import TIPO_SERVICO, FORMA_LANCAMENTO, \
-    INDICATIVO_FORMA_PAGAMENTO, TIPO_MOVIMENTO, CODIGO_INSTRUCAO_MOVIMENTO
+from ..constantes import (TIPO_SERVICO,
+                          FORMA_LANCAMENTO,
+                          INDICATIVO_FORMA_PAGAMENTO,
+                          INDICATIVO_FORMA_PAGAMENTO_400,
+                          TIPO_MOVIMENTO, CODIGO_INSTRUCAO_MOVIMENTO)
 
 
 class PaymentOrder(models.Model):
