@@ -111,6 +111,21 @@ class PaymentOrderCreate(models.TransientModel):
                   ('date_maturity', '<=', self.duedate),
                   ('date_maturity', '=', False)]
         self.extend_payment_order_domain(payment, domain)
+        # FIXME - refactoring extend_payment_order_domain to return domain
+        # value
+        domain = [
+            ('move_id.state', '=', 'posted'),
+            ('reconcile_id', '=', False),
+            ('company_id', '=', payment.mode.company_id.id),
+            ('invoice.fiscal_category_id.property_journal.revenue_expense', '=', True),
+            ('payment_mode_id', '=', payment.mode.id),
+            ('account_id.type', '=', 'receivable'),
+            ('invoice.state', '=', 'open')]
+        if self.date_type == 'due':
+            domain.append(('date_maturity', '<=', self.duedate))
+        elif self.date_type == 'move':
+            domain.append(('date', '<=', self.move_date))
+
         # -- end account_direct_debit --
         lines = line_obj.search(domain)
         context = self.env.context.copy()

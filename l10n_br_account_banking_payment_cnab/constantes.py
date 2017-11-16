@@ -262,6 +262,32 @@ CODIGO_INSTRUCAO_MOVIMENTO = [
     ('99', u'99 - Exclusão do Registro Detalhe Incluído Anteriormente'),
 ]
 
+
+CODIGO_INSTRUCAO_MOVIMENTO_400 = [
+    ('01', u'Remessa'),
+    ('02', u'Pedido de baixa'),
+    ('03', u'Pedido de Protesto Falimentar'),
+    ('04', u'Concessão de abatimento'),
+    ('05', u'Cancelamento de abatimento concedido'),
+    ('06', u'Alteração de vencimento'),
+    ('07', u'Alteração do controle do participante'),
+    ('08', u'Alteração de seu número'),
+    ('09', u'Pedido de protesto'),
+    ('18', u'Sustar protesto e baixar Título'),
+    ('19', u'Sustar protesto e manter em carteira'),
+    ('20', u'Alteração de valor*'),
+    ('21', u'Alteração de valor com emissão de Boleto (quando a emissão é pelo Banco)*'),
+    ('22', u'Transferência Cessão crédito ID. Prod.10'),
+    ('23', u'Transferência entre Carteiras'),
+    ('24', u'Dev. Transferência entre Carteiras'),
+    ('31', u'Alteração de outros dados'),
+    ('045', u'Pedido de Negativação'),
+    ('046', u'Excluir Negativação com baixa'),
+    ('047', u'Excluir negativação e manter pendente'),
+    ('68', u'Acerto nos dados do rateio de Crédito'),
+    ('69', u'Cancelamento do rateio de crédito (uso futuro).')
+]
+
 CODIGO_OCORRENCIAS = [
     ('00', u'00 - Crédito ou Débito Efetivado'),
     ('01', u'01 - Insuficiência de Fundos - Débito Não Efetuado'),

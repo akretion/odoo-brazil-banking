@@ -54,10 +54,10 @@ class PaymentOrder(models.Model):
         default='0',
     )
     codigo_instrucao_movimento = fields.Selection(
-        selection=CODIGO_INSTRUCAO_MOVIMENTO,
+        selection=CODIGO_INSTRUCAO_MOVIMENTO_400,
         string='Código da Instrução para Movimento',
         help='Campo G061 do CNAB',
-        default='0',
+        default='00',
     )
 
     # @api.multi
