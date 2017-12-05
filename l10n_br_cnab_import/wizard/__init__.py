@@ -1,9 +1,7 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # ###########################################################################
 #
-#    Author: Luis Felipe Mileo
-#            Fernando Marcato Rodrigues
-#            Daniel Sadamo Hirayama
+#    Author: Fernando Marcato Rodrigues
 #    Copyright 2015 KMEE - www.kmee.com.br
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,5 +19,4 @@
 #
 ##############################################################################
 
-from . import wizard
-from . import models
+from . import account_bank_statement_import

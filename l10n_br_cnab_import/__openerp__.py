@@ -35,7 +35,7 @@
         'l10n_br_account',
     ],
     'data': [
-        'view/cnab_import_view.xml',
+        'views/cnab_import_view.xml',
     ],
     'active': False,
     "installable": False,
