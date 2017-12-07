@@ -103,6 +103,10 @@ class PaymentOrderCreate(models.TransientModel):
             # write bool to move_line to avoid it being added on cnab again
             self.write_cnab_rejected_bool(line)
 
+        if (payment.payment_order_type == 'cobranca' and
+                res['amount_currency'] < 0):
+            res['amount_currency'] *= -1
+
         return res
 
     @api.multi
