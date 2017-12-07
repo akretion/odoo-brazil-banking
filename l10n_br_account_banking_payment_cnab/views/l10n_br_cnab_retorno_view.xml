@@ -2,7 +2,7 @@
 <openerp>
     <data>
 
-        <menuitem id="menu_main_cnab" name="CNAB" parent="account.menu_finance" sequence="6"/>
+        <menuitem id="menu_main_cnab" name="CNAB" parent="account.menu_finance" sequence="6" groups="group_cnab_user"/>
 
         <record id="view_cnab_retorno_tree" model="ir.ui.view">
             <field name="name">cnab.retorno.tree</field>
