@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_l10n_br_cnab_retorno_document">
+    <t t-call="report.html_container">
+    <t t-foreach="docs" t-as="o">
+        <t t-call="report.external_layout">
+            <div class="page">
+                <h2>Retorno CNAB</h2>
+                <div class="oe_structure"/>
+                    <div class="row mt32 mb32" id="informations">
+                    <div class="col-xs-6">
+                        <strong>Nome : </strong><span t-field="o.name"/>
+                    </div>
+                    <div class="col-xs-6">
+                        <strong>Data Criação do Arquivo : </strong><span t-field="o.data"/>
+                    </div>
+                </div>
+
+            <div class="row mt32 mb32" id="informations">
+                <div t-if="o.bank" class="col-xs-3">
+                    <strong>Banco:</strong>
+                    <span t-field="o.bank"/>
+                </div>
+                <div t-if="o.cnab_type" class="col-xs-3">
+                    <strong>Tipo de Arquivo CNAB:</strong>
+                    <span t-field="o.cnab_type"/>
+                </div>
+                <div t-if="o.num_lotes" class="col-xs-3">
+                    <strong>Número de Lotes:</strong>
+                    <span t-field="o.num_lotes"/>
+                </div>
+                <div t-if="o.num_eventos" class="col-xs-3">
+                    <strong>Número de Eventos:</strong>
+                    <span t-field="o.num_eventos"/>
+                </div>
+                <div t-if="o.bank_account_id" class="col-xs-3">
+                    <strong>Conta Cedente:</strong>
+                    <span t-field="o.bank_account_id"/>
+                </div>
+
+            </div>
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Data da Ocorrencia</th>
+                        <th class="text-right">Data Real do Pagamento</th>
+                        <th class="text-right">Segmento</th>
+                        <th class="text-right">Favorecido Nome</th>
+                        <th class="text-right">Nosso Numero</th>
+                        <th class="text-right">Seu Numero</th>
+                        <th class="text-right">Tipo Moeda</th>
+                        <th class="text-right">Valor Pagamento</th>
+                        <th class="text-right">Ocorrencias</th>
+                        <th class="text-right">Motivo Ocorrencia 01</th>
+                    </tr>
+               </thead>
+
+               <tbody class="sale_tbody">
+                    <tr t-foreach="o.lote_id" t-as="l">
+
+                        <tr t-foreach="l.evento_id" t-as="e">
+
+                            <td class="text-right">
+                                <span t-field="e.create_date"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.data_real_pagamento"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.segmento"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.favorecido_nome"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.nosso_numero"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.seu_numero"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.tipo_moeda"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.valor_pagamento"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.ocorrencias"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="e.str_motiv_a"/>
+                            </td>
+
+                        </tr>
+
+                    <div class="row">
+                        <div class="col-xs-4 pull-right">
+                            <table class="table table-condensed">
+                                <tr class="border-black">
+                                    <td><strong>Total</strong></td>
+                                    <td class="text-right">
+                                        R$ <span t-field="l.total_valores"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            </div>
+        </t>
+    </t>
+
+            <div class="oe_structure"/>
+    </t>
+</template>
+
+<template id="report_l10n_br_cnab_retorno">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'env.lang',
+             'l10n_br_account_banking_payment_cnab.report_l10n_br_cnab_retorno_document')"/>
+        </t>
+    </t>
+</template>
+</data>
+</openerp>
