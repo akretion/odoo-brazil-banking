@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="report_cnab_retorno"
+            string="CNAB Retorno"
+            model="l10n.br.cnab"
+            report_type="qweb-pdf"
+            file="l10n_br_account_banking_payment_cnab.report_l10n_br_cnab_retorno"
+            name="l10n_br_account_banking_payment_cnab.report_l10n_br_cnab_retorno"
+        />
+    </data>
+</openerp>
+

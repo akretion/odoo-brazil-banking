@@ -53,6 +53,8 @@
         'views/bank_payment_line.xml',
         'data/l10n_br_payment_export_type.xml',
         'security/ir.model.access.csv',
+        'views/l10n_br_account_banking_payment_cnab_report.xml',
+        'views/report_l10n_br_cnab_retorno.xml',
     ],
     'demo': [
         # 'demo/l10n_br_payment_mode.xml',
