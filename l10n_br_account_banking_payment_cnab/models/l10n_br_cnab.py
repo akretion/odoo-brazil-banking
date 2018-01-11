@@ -79,6 +79,7 @@ TIPO_INSCRICAO_EMPRESA = {
 
 class L10nBrHrCnab(models.Model):
     _name = "l10n.br.cnab"
+    _inherit = ['mail.thread']
     _rec_name = "display_name"
 
     @api.multi
